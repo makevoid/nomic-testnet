@@ -18,10 +18,10 @@ let { bold, cyan, red } = require('chalk')
 
 const CMD = basename(process.argv[1])
 
-const TESTNET_GCI =
-  '58bae8263f5ac4f1a3c93c2876538054fd8727d44504c30973a08ef82c64424b'
+const MAINNET_GCI =
+  '<TODO GCI>'
 
-const SYMBOL = 'NBTC'
+const SYMBOL = 'TBTX' // test bitcoin x (mainnet bitcoins put at test - please don't test with a lot of funds, this is mainnet!!)
 
 const USAGE = `
 Usage: ${CMD} [command]
@@ -40,7 +40,7 @@ async function main() {
     process.exit(1)
   }
 
-  let gci = process.env.gci || TESTNET_GCI
+  let gci = process.env.gci || MAINNET_GCI
   let client = await connect(
     gci,
     { nodes: ['ws://pbtc.mappum.com:1338', 'ws://pbtc.judd.co:1338'] }
@@ -78,7 +78,7 @@ ${bold('YOUR BALANCE:')} ${cyan((await coinsWallet.balance()) / 1e8)} ${SYMBOL}`
     let btcDepositAddress = p2pkh.address
 
     console.log(`
-${bold('YOUR BITCOIN TESTNET DEPOSIT ADDRESS:')}
+${bold('YOUR BITCOIN MAINNET DEPOSIT ADDRESS (careful):')}
 ${cyan(btcDepositAddress)}
 
 Send BTC to this address and it will be transferred to your account on the sidechain.
@@ -142,7 +142,7 @@ async function doDepositProcess(
   depositTransaction = bitcoin.signTx(depositTransaction, depositPrivateKey)
   await bitcoin.broadcastTx(depositTransaction)
   let txHash = bitcoin.getTxHash(depositTransaction)
-  let explorerLink = `https://live.blockcypher.com/btc-testnet/tx/${txHash
+  let explorerLink = `https://live.blockcypher.com/btc/tx/${txHash
     .slice(0)
     .reverse()
     .toString('hex')}`
@@ -177,7 +177,7 @@ async function doWithdrawProcess(client, coinsWallet, address, amount) {
   try {
     outputScript = bitcoin.createOutputScript(address)
   } catch (err) {
-    spinner.fail(red('Invalid Bitcoin testnet address'))
+    spinner.fail(red('Invalid Bitcoin mainnet address'))
     process.exit(1)
   }
 
@@ -226,7 +226,7 @@ async function doWithdrawProcess(client, coinsWallet, address, amount) {
   let spinner3 = ora('Relaying transaction to Bitcoin network...').start()
   let tx = await buildDisbursalTransaction(signedTx, validators, signatories)
   await bitcoin.broadcastTx(tx)
-  let withdrawalTxLink = `https://live.blockcypher.com/btc-testnet/tx/${tx.getId()}`
+  let withdrawalTxLink = `https://live.blockcypher.com/btc/tx/${tx.getId()}`
   spinner3.succeed(`Withdrawal succeeded: ${cyan(withdrawalTxLink)}`)
 }
 

@@ -1,6 +1,6 @@
 {
-  "genesis_time": "2018-11-29T00:43:26.525548031Z",
-  "chain_id": "coins-test",
+  "genesis_time": "<TODO 2018-11-29T00:43:26.525548031Z>",
+  "chain_id": "coins-test-main",
   "consensus_params": {
     "block_size_params": {
       "max_bytes": "22020096",
@@ -12,19 +12,10 @@
   },
   "validators": [
     {
-      "address":"29B162D6C4310FBC6E82E5CA0293125AA250AA06",
-      "pub_key":{"type":"tendermint/PubKeyEd25519","value":"SXv/PvNgrMHZdmRNo9LJQsvfewLrluGdYdSuSZqW/A0="},
+      "address":"TODO_ADDRESS",
+      "pub_key":{"type":"tendermint/PubKeyEd25519","value":"<TODO_PUBKEY>"},
       "power": "10",
-      "name": "Judd"
-    },
-    {
-      "address": "893133474223BA13B46DD29943ECB3071C655AC4",
-      "pub_key": {
-        "type": "tendermint/PubKeyEd25519",
-        "value": "TKv4vdu6W+bJRWXGIAyzomBMT6OOXioFX5ME1GAbR2w="
-      },
-      "power": "10",
-      "name": "Matt"
+      "name": "makevoid"
     }
   ],
   "app_hash": ""

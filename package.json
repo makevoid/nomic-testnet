@@ -1,9 +1,9 @@
 {
-  "name": "nomic-testnet",
+  "name": "nomic-testnet-makevoid",
   "version": "0.0.2",
-  "description": "Pegged bitcoin proof-of-stake sidechain cli wallet",
+  "description": "Pegged bitcoin proof-of-stake sidechain cli wallet - makevoid fork",
   "bin": {
-    "nbtc": "bin/fbtc.js"
+    "nbtc": "bin/tbtx.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nomic-io/fbtc.git"
+    "url": "git+https://github.com/makevoid/nomic-testnet.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nomic-io/fbtc/issues"
+    "url": "https://github.com/makevoid/nomic-testnet/issues"
   },
-  "homepage": "https://github.com/nomic-io/fbtc#readme",
+  "homepage": "https://github.com/makevoid/nomic-testnet#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "bitcoin-filter": "^0.2.0",
@@ -36,6 +36,7 @@
     "ora": "^3.0.0",
     "tendermint": "^3.4.1",
     "webcoin": "^3.1.0",
+    "webcoin-bitcoin": "^3.1.5",
     "webcoin-bitcoin-testnet": "^1.1.1"
   }
 }
